@@ -1,9 +1,9 @@
 #!/bin/python3
 
-from typing import Tuple
 from PIL import Image, ImageDraw
-import json
+from typing import Tuple
 from random import randint
+import json
 
 SCALE = 40
 BORDER = 5
@@ -33,7 +33,7 @@ def draw_point(im: Image, x: int, y: int):
                  fill=(255, 255, 255), outline=(0, 0, 0))
 
 
-def draw_lines(im: Image, lines: Tuple[Tuple[int, int]], color=(255, 255, 255, 125)):
+def draw_lines(im: Image, lines: Tuple[Tuple[int, int], ...], color=(255, 255, 255, 125)):
     draw = ImageDraw.Draw(im, 'RGBA')
     line_seq = tuple(((x * SCALE + BORDER, y * SCALE + BORDER)
                       for x, y in lines))

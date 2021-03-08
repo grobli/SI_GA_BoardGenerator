@@ -63,4 +63,4 @@ Output (`board.png`):
 ![example](./board.png "board.png")
 
 ### Extras
-You can change the scale of generate image by modifying `SCALE` constant in `generator.py`.
+You can change the scale of generated image by modifying `SCALE` constant in `generator.py`.
