@@ -1,7 +1,7 @@
 ## PCB Board Picture Generator for visualizing GA solutions
 
 ### Dependencies
-- Python 3
+- Python 3.8 (or newer) 
 - [Pillow](https://python-pillow.org)
 
 ### Installation
@@ -39,8 +39,8 @@ First you need to generate yourself a solution JSON file in the format just like
 
 Where:
 
-- `Board` represents dimensions of PCB board `(x, y)` which means width and height respectively
-- `Points` is a list of *points* that need to be connected on the PCB. Each point is represented by a *list* of coordinates `[x, y]` 
+- `Board` represents dimensions of PCB board `[x, y]` which means width and height respectively.
+- `Points` is a list of *points* that need to be connected on the PCB. Each point is represented by a *list* of coordinates `[x, y]`.
 - `Paths` is a list of paths between *points*. Each sublist like:
 
     ```
@@ -51,14 +51,21 @@ Where:
     ```
     represents one complete path between two points. Each sublist of path list represents a point which is a part of given path.
 
-### Example of usage
+#### 2. Run script
+
+Interface: `generate.py <input (*.json)> [<output (*.png)>]`
+
+Options:
+  - `<input (*.json)>` - solution file in JSON format, i.e. `example.json` (obligatory).
+  - `[<output (*.png)>]` - path of the saved result file, i.e. `board.png` (optional - if not given then script will only show the result in the window without saving it).
+
+##### Usage examples
 ```
->> python generator.py 
-|  Enter solution (*.json) file path: example.json
-|  Enter output image name (image will be saved as <name>.png): board
->> 
+>> python generator.py example.json board.png    ### result is saved to file named board.png
+
+>> python generator.py example.json    ### result is only displayed in system window
 ```
-Output (`board.png`):
+Sample output (`board.png`):
 
 ![example](./board.png "board.png")
 

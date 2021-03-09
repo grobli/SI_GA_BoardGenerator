@@ -4,6 +4,7 @@ from PIL import Image, ImageDraw
 from typing import Tuple
 from random import randint
 import json
+import sys
 
 SCALE = 40
 BORDER = 5
@@ -40,13 +41,7 @@ def draw_lines(im: Image, lines: Tuple[Tuple[int, int], ...], color=(255, 255, 2
     draw.line(line_seq, width=SCALE//4, joint="curve", fill=color)
 
 
-if __name__ == '__main__':
-    filepath = input("Enter solution (*.json) file path: ")
-    output_file = input(
-        "Enter output image name (image will be saved as <name>.png): ")
-    with open(filepath, 'r') as file:
-        solution = json.load(file)
-
+def create_board(solution: dict) -> Image:
     dim_x, dim_y = solution['Board']
     im = create_plane(dim_x, dim_y)
 
@@ -59,5 +54,38 @@ if __name__ == '__main__':
     for x, y in solution['Points']:
         draw_point(im, x, y)
 
-    im.save(f'{output_file}.png')
-    im.show()
+    return im
+
+
+def main() -> int:
+    def usage():
+        print("usage: generate.py <input (*.json)> [<output> (*.png)]")
+        return 1
+
+    argv = sys.argv[1:]
+    output_path = ''
+    if argv:
+        # first must be .json file
+        if not (json_path := argv.pop(0)).lower().endswith('.json'):
+            return usage()
+
+        if argv:  # there are still more options
+            output_path = argv.pop(0)
+
+        if argv:  # there are still options - shouldn't happen :(
+            return usage()
+    else:
+        return usage()
+
+    with open(json_path, 'r') as file:
+        im = create_board(json.load(file))
+
+    if output_path:
+        im.save(output_path)
+    else:
+        im.show()
+    return 0
+
+
+if __name__ == '__main__':
+    main()
