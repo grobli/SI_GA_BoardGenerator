@@ -2,12 +2,42 @@
 
 from PIL import Image, ImageDraw
 from typing import Tuple
-from random import randint
 import json
 import sys
 
 SCALE = 40
 BORDER = 5
+PATH_TRANSPARENCY = '59'  # transparency in hexadecimal format (35% == '59')
+
+COLOR_PALETTE_8 = [
+    '#191970',  # midnightblue
+    '#006400',  # darkgreen
+    '#ff0000',  # red
+    '#ffd700',  # gold
+    '#00ff00',  # lime
+    '#00ffff',  # aqua
+    '#ff00ff',  # fuchsia
+    '#ffb6c1',  # lightpink
+]
+
+COLOR_PALETTE_16 = [
+    '#2f4f4f',  # darkslategray
+    '#800000',  # maroon
+    '#006400',  # darkgreen
+    '#00008b',  # darkblue
+    '#ff0000',  # red
+    '#ffa500',  # orange
+    '#ffff00',  # yellow
+    '#00ff00',  # lime
+    '#00fa9a',  # mediumspringgreen
+    '#00ffff',  # aqua
+    '#0000ff',  # blue
+    '#ff00ff',  # fuchsia
+    '#1e90ff',  # dodgerblue
+    '#f0e68c',  # khaki
+    '#ff1493',  # deeppink
+    '#ffb6c1',  # lightpink
+]
 
 
 def create_plane(width: int, height: int) -> Image:
@@ -45,10 +75,11 @@ def create_board(solution: dict) -> Image:
     dim_x, dim_y = solution['Board']
     im = create_plane(dim_x, dim_y)
 
+    color_palette = COLOR_PALETTE_8 if len(
+        solution['Paths']) < 9 else COLOR_PALETTE_16
+
     for i, path in enumerate(solution['Paths']):
-        color = [randint(0, 255) for _ in range(3)]
-        color.append(min(125 + i * 10, 255))
-        color = tuple(color)
+        color = f'{color_palette[i % len(color_palette)]}{PATH_TRANSPARENCY}'
         draw_lines(im, path, color=color)
 
     for x, y in solution['Points']:
