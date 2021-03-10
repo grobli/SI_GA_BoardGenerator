@@ -21,14 +21,14 @@ First you need to generate yourself a solution JSON file in the format just like
 
 ```
 {
-  "Board": [6, 6],
-  "Points": [
+  "board": [6, 6],
+  "points": [
     [1, 3],
     [5, 3],
     [3, 1],
     [3, 3]
   ],
-  "Paths": [
+  "paths": [
     [
       [1, 3],
       [1, 4],
@@ -45,9 +45,9 @@ First you need to generate yourself a solution JSON file in the format just like
 
 Where:
 
-- `Board` represents dimensions of PCB board `[x, y]` which means width and height respectively.
-- `Points` is a list of _points_ that need to be connected on the PCB. Each point is represented by a _list_ of coordinates `[x, y]`.
-- `Paths` is a list of paths between _points_. Each sublist like:
+- `board` represents dimensions of PCB board `[x, y]` which means width and height respectively.
+- `points` is a list of _points_ that need to be connected on the PCB. Each point is represented by a _list_ of coordinates `[x, y]`.
+- `paths` is a list of paths between _points_. Each sublist like:
 
   ```
       [
