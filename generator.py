@@ -72,17 +72,17 @@ def draw_lines(im: Image, lines: Tuple[Tuple[int, int], ...], color=(255, 255, 2
 
 
 def create_board(solution: dict) -> Image:
-    dim_x, dim_y = solution['Board']
+    dim_x, dim_y = solution['board']
     im = create_plane(dim_x, dim_y)
 
     color_palette = COLOR_PALETTE_8 if len(
-        solution['Paths']) < 9 else COLOR_PALETTE_16
+        solution['paths']) < 9 else COLOR_PALETTE_16
 
-    for i, path in enumerate(solution['Paths']):
+    for i, path in enumerate(solution['paths']):
         color = f'{color_palette[i % len(color_palette)]}{PATH_TRANSPARENCY}'
         draw_lines(im, path, color=color)
 
-    for x, y in solution['Points']:
+    for x, y in solution['points']:
         draw_point(im, x, y)
 
     return im
