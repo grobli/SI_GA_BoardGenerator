@@ -5,9 +5,9 @@ from typing import Tuple
 import json
 import sys
 
-SCALE = 40
-BORDER = 5
-PATH_TRANSPARENCY = '59'  # transparency in hexadecimal format (35% == '59')
+SCALE = 50
+BORDER = 10
+PATH_TRANSPARENCY = 'FF'  # transparency in hexadecimal format (00..FF)
 
 COLOR_PALETTE_8 = [
     '#191970',  # midnightblue
