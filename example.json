@@ -1,5 +1,7 @@
 {
   "board": [6, 6],
+  "generation": 42,
+  "fitness": 21.37,
   "points": [
     [1, 3],
     [5, 3],
