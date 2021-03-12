@@ -1,4 +1,8 @@
-## PCB Board Picture Generator for visualizing GA solutions
+## PCB Board Picture Generator for visualizing GA solutions (AI Lab)
+
+<div align="center">
+  <img src="https://github.com/m-LoKi-g/SI_GA_BoardGenerator/blob/master/board.png?raw=true">
+</div>
 
 ### Dependencies
 
@@ -78,10 +82,6 @@ Options:
 
 >> python generator.py example.json    ### result is only displayed in system window
 ```
-
-Sample output (`board.png`):
-
-![example](./board.png 'board.png')
 
 ### Extras
 
