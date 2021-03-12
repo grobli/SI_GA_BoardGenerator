@@ -131,22 +131,22 @@ class BoardDrawer:
 def main() -> int:
     def usage():
         print("usage: generate.py <input (*.json)> [<output> (*.png)]")
-        return 1
+        sys.exit(1)
 
     argv = sys.argv[1:]
     output_path = ''
     if argv:
         # first must be .json file
         if not (json_path := argv.pop(0)).lower().endswith('.json'):
-            return usage()
+            usage()
 
         if argv:  # there are still more options
             output_path = argv.pop(0)
 
         if argv:  # there are still options - shouldn't happen :(
-            return usage()
+            usage()
     else:
-        return usage()
+        usage()
 
     with open(json_path, 'r') as file:
         drawer = BoardDrawer(json.load(file))
@@ -156,7 +156,7 @@ def main() -> int:
         im.save(output_path)
     else:
         im.show()
-    return 0
+    sys.exit(0)
 
 
 if __name__ == '__main__':
