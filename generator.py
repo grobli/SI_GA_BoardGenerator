@@ -90,9 +90,6 @@ class BoardDrawer:
         # draw inline plane
         self.__draw.rectangle(self.__board_dim,  fill=(84, 84, 84))
 
-        # draw text
-        self.__draw_text((BORDER, BORDER // 2), self.text)
-
         # draw points
         for x in range(self.width):
             for y in range(self.height):
@@ -119,6 +116,9 @@ class BoardDrawer:
         for i, path in enumerate(self.paths):
             color = f'{color_palette[i % len(color_palette)]}{PATH_TRANSPARENCY}'
             draw_lines(path, color=color)
+
+        # draw text
+        self.__draw_text((BORDER, BORDER // 2), self.text)
 
         # draw points
         for x, y in self.points:
