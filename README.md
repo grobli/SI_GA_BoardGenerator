@@ -68,7 +68,7 @@ Where:
 
 #### 2. Run script
 
-Interface: `generate.py <input (*.json)> [<output (*.png)>]`
+Interface: `generator.py <input (*.json)> [<output (*.png)>]`
 
 Options:
 

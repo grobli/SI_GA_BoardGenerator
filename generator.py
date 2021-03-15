@@ -128,10 +128,10 @@ class BoardDrawer:
         return self.__img.copy()
 
 
-def main() -> int:
+def main():
     def usage():
-        print("usage: generate.py <input (*.json)> [<output> (*.png)]")
-        sys.exit(1)
+        print("usage: generator.py <input (*.json)> [<output> (*.png)]")
+        sys.exit(-1)
 
     argv = sys.argv[1:]
     output_path = ''
@@ -140,7 +140,7 @@ def main() -> int:
         if not (json_path := argv.pop(0)).lower().endswith('.json'):
             usage()
 
-        if argv:  # there are still more options
+        if argv:
             output_path = argv.pop(0)
 
         if argv:  # there are still options - shouldn't happen :(
