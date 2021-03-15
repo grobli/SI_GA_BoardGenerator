@@ -4,12 +4,17 @@ from PIL import Image, ImageDraw, ImageFont
 from typing import Tuple
 import json
 import sys
+import os
+
+ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
+
 
 SCALE = 50
 BORDER = 10
 PATH_TRANSPARENCY = 'FF'  # transparency in hexadecimal format (00..FF)
 FONT_SIZE = max(16, SCALE // 2)  # in px
-FONT = ImageFont.truetype("FreeMonoBold.ttf", size=FONT_SIZE)
+FONT = ImageFont.truetype(os.path.join(ROOT_DIR, "FreeMonoBold.ttf"), size=FONT_SIZE)
+
 
 COLOR_PALETTE_8 = [
     '#191970',  # midnightblue
