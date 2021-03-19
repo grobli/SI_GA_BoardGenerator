@@ -68,7 +68,7 @@ Where:
   represents one complete path between two connection points. Each path can be coded in two ways:
 
   - each point which is contained within the path (in other words - step by step, for instance path from point `[0, 0]` to point `[2,1]` would be represented like this: `[[0,0], [1,0], [2,0], [2,1]]`)
-  - points can represent _start_ or _end_ of the segment that builds the path. Each segment is then coded like this: `[[0,0], [2,0], [2,1]]` would create following segments: `[0,0] -> [2,0]` and `[2,0] -> [2,1]`
+  - points can represent _start_ or _end_ of the segment that builds the path. Each path is then coded like this: `[[0,0], [2,0], [2,1]]`. Those points would create following segments: `[0,0] -> [2,0]` and `[2,0] -> [2,1]` which if you compare them with the previous example outputs the same path.
 
 #### 2. Run script
 
